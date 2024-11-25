@@ -26,7 +26,6 @@ public class Specie extends Item{
     private int anno_di_classificazione;
     @OneToOne(cascade = CascadeType.ALL)
     private Fenotipo fenotipo;
-    private long esemplari_rimasti;
 
     @ToString.Exclude
     @ManyToOne

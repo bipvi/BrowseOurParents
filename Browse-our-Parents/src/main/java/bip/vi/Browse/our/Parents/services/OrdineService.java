@@ -3,6 +3,7 @@ package bip.vi.Browse.our.Parents.services;
 import bip.vi.Browse.our.Parents.DTO.OrdineDTO;
 import bip.vi.Browse.our.Parents.entities.Classe;
 import bip.vi.Browse.our.Parents.entities.Ordine;
+import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
 import bip.vi.Browse.our.Parents.repo.OrdineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
 @Service
-public class OrdineService {
+public class OrdineService extends SetImg {
     @Autowired
     private OrdineRepository ordineRepository;
     @Autowired
@@ -49,6 +51,15 @@ public class OrdineService {
         Ordine found = this.findOrdineById(id);
         this.ordineRepository.delete(found);
         System.out.println("L' ordine " + found.getNome() + " eliminata con successo");
+    }
+
+    //----------------------------------- Set Img ---------------------------------------------------
+    public String setImg(String id, MultipartFile file) {
+        Ordine found = this.findOrdineById(id);
+        String url = this.getUrl(file);
+        found.setImg(url);
+        this.ordineRepository.save(found);
+        return url;
     }
 
     //----------------------------- Query ---------------------------------------------------

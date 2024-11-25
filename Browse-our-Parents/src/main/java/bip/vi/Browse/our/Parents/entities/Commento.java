@@ -31,6 +31,6 @@ public class Commento {
         this.item = item;
         this.user = user;
         this.created_at = LocalDateTime.now();
-        this.contenuto = body.getContenuto();
+        this.contenuto = body.contenuto();
     }
 }

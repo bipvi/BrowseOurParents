@@ -3,6 +3,7 @@ package bip.vi.Browse.our.Parents.services;
 import bip.vi.Browse.our.Parents.DTO.FamigliaDTO;
 import bip.vi.Browse.our.Parents.entities.Famiglia;
 import bip.vi.Browse.our.Parents.entities.Ordine;
+import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
 import bip.vi.Browse.our.Parents.repo.FamigliaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
 @Service
-public class FamigliaService {
+public class FamigliaService extends SetImg {
     @Autowired
     private FamigliaRepository famigliaRepository;
     @Autowired
@@ -49,6 +51,15 @@ public class FamigliaService {
         Famiglia found = this.findFamigliaById(id);
         this.famigliaRepository.delete(found);
         System.out.println("La famiglia " + found.getNome() + " è stata eliminata");
+    }
+
+    //----------------------------------- Set Img ---------------------------------------------------
+    public String setImg(String id, MultipartFile file) {
+        Famiglia found = this.findFamigliaById(id);
+        String url = this.getUrl(file);
+        found.setImg(url);
+        this.famigliaRepository.save(found);
+        return url;
     }
 
     //-------------------------------- Query ----------------------------------------------------

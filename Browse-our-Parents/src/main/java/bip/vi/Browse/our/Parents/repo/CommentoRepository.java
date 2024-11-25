@@ -4,6 +4,10 @@ import bip.vi.Browse.our.Parents.entities.Commento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.UUID;
+
 @Repository
 public interface CommentoRepository extends JpaRepository<Commento, Integer> {
+    List<Commento> findByItem_Id(UUID itemId);
 }

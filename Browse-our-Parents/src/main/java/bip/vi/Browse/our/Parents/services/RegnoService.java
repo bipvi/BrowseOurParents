@@ -2,6 +2,7 @@ package bip.vi.Browse.our.Parents.services;
 
 import bip.vi.Browse.our.Parents.DTO.RegnoDTO;
 import bip.vi.Browse.our.Parents.entities.Regno;
+import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
 import bip.vi.Browse.our.Parents.repo.RegnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
 @Service
-public class RegnoService {
+public class RegnoService extends SetImg {
     @Autowired
     private RegnoRepository regnoRepository;
 
@@ -45,6 +47,15 @@ public class RegnoService {
         Regno found = this.findRegnoById(id);
         this.regnoRepository.delete(found);
         System.out.println("Il regno: " + found.getNome() + " è stato cancellato con successo");
+    }
+
+    //----------------------------------- Set Img ---------------------------------------------------
+    public String setImg(String id, MultipartFile file) {
+        Regno found = this.findRegnoById(id);
+        String url = this.getUrl(file);
+        found.setImg(url);
+        this.regnoRepository.save(found);
+        return url;
     }
 
     //------------------------------ Query ------------------------------------------------

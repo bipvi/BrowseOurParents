@@ -4,24 +4,30 @@ import bip.vi.Browse.our.Parents.DTO.SpecieDTO;
 import bip.vi.Browse.our.Parents.entities.Fenotipo;
 import bip.vi.Browse.our.Parents.entities.Genere;
 import bip.vi.Browse.our.Parents.entities.Specie;
+import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
 import bip.vi.Browse.our.Parents.repo.SpecieRepository;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.UUID;
 
 @Service
-public class SpecieService {
+public class SpecieService extends SetImg {
     @Autowired
     private SpecieRepository specieRepository;
     @Autowired
     private FenotipoService fenotipoService;
     @Autowired
     private GenereService genereService;
+
 
     //----------------------------- Crud ---------------------------------------------------
 
@@ -47,7 +53,6 @@ public class SpecieService {
         found.setStoria(body.storia());
         if (body.fenotipo_id() != null) found.setFenotipo(this.fenotipoService.findFenotipoById(body.fenotipo_id()));
         found.setGenere(this.genereService.findGenereById(body.genere_id()));
-        found.setEsemplari_rimasti(body.esemplari_rimasti());
         return found;
     }
 
@@ -55,6 +60,15 @@ public class SpecieService {
         Specie found = this.findSpecieById(id);
         this.specieRepository.delete(found);
         System.out.println("Specie " + found.getNome_comune() + " eliminata con successo");
+    }
+
+    //----------------------------------- Set Img ---------------------------------------------------
+    public String setImg(String id, MultipartFile file) {
+        Specie found = this.findSpecieById(id);
+        String url = this.getUrl(file);
+        found.setImg(url);
+        this.specieRepository.save(found);
+        return url;
     }
 
     //------------------------------------ Query ----------------------------------------------------

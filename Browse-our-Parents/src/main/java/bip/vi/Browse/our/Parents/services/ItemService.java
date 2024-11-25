@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
@@ -46,4 +47,11 @@ public class ItemService {
     //    if (size > 50) size = 50;
       //  return this.itemRepository.findByDescrizioneContainingIgnoreCaseOrStoriaContainingIgnoreCaseOrNomeContainingIgnoreCase(query, query ,query ,PageRequest.of(page, size, Sort.by(sort)));}
 
+    // ------------------ LetMeExploreRandomly ----------------------------
+
+    public Item findRandomly(){
+        Random random = new Random();
+        List<Item> items = this.itemRepository.findAll();
+        return items.get(random.nextInt(items.size()));
+    }
 }

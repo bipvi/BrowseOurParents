@@ -12,6 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.stream.Collectors;
 
@@ -61,6 +62,12 @@ public class RegnoController {
         this.regnoService.deleteRegno(regnoId);
     }
 
+    // ------------------ PATCH -----------------------------
+    @PatchMapping("/{regnoId}/img")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    public String setImg(@PathVariable("regnoId") String regnoId, @RequestParam("img")MultipartFile img){
+        return this.regnoService.setImg(regnoId, img);
+    }
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/nomeQuery")

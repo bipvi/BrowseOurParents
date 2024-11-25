@@ -3,6 +3,7 @@ package bip.vi.Browse.our.Parents.services;
 import bip.vi.Browse.our.Parents.DTO.PhylumDTO;
 import bip.vi.Browse.our.Parents.entities.Phylum;
 import bip.vi.Browse.our.Parents.entities.Regno;
+import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
 import bip.vi.Browse.our.Parents.repo.PhylumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
 @Service
-public class PhylumService {
+public class PhylumService extends SetImg{
     @Autowired
     private PhylumRepository phylumRepository;
     @Autowired
@@ -49,6 +51,15 @@ public class PhylumService {
     public void findPhylumAndDelete(String id){
         Phylum found = this.findPhylumById(id);
         this.phylumRepository.delete(found);
+    }
+
+    //----------------------------------- Set Img ---------------------------------------------------
+    public String setImg(String id, MultipartFile file) {
+        Phylum found = this.findPhylumById(id);
+        String url = this.getUrl(file);
+        found.setImg(url);
+        this.phylumRepository.save(found);
+        return url;
     }
 
     //------------------------ Query ---------------------------------------------------------

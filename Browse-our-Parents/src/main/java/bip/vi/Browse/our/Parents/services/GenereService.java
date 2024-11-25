@@ -3,6 +3,7 @@ package bip.vi.Browse.our.Parents.services;
 import bip.vi.Browse.our.Parents.DTO.GenereDTO;
 import bip.vi.Browse.our.Parents.entities.Famiglia;
 import bip.vi.Browse.our.Parents.entities.Genere;
+import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
 import bip.vi.Browse.our.Parents.repo.GenereRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
 @Service
-public class GenereService {
+public class GenereService extends SetImg {
     @Autowired
     private GenereRepository genereRepository;
     @Autowired
@@ -49,6 +51,15 @@ public class GenereService {
         Genere found = this.findGenereById(id);
         this.genereRepository.delete(found);
         System.out.println("Il genere "+ found.getNome() + "eliminato con successo");
+    }
+
+    //----------------------------------- Set Img ---------------------------------------------------
+    public String setImg(String id, MultipartFile file) {
+        Genere found = this.findGenereById(id);
+        String url = this.getUrl(file);
+        found.setImg(url);
+        this.genereRepository.save(found);
+        return url;
     }
 
     //---------------------------------- Query ------------------------------------------------------
