@@ -14,20 +14,16 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "specie")
-public class Specie {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Setter(AccessLevel.NONE)
-    private UUID id;
+public class Specie extends Item{
+
 
     private String nome_scientifico;
     private String nome_comune;
-    @Lob
-    @Column(length = 10000)
+    @Column(length = 800)
     private String descrizione;
-    @Lob
+    @Column(length = 800)
     private String storia;
-    private LocalDate data_di_classificazione;
+    private int anno_di_classificazione;
     @OneToOne(cascade = CascadeType.ALL)
     private Fenotipo fenotipo;
     private long esemplari_rimasti;
@@ -42,17 +38,20 @@ public class Specie {
         this.nome_scientifico = body.nome_scientifico();
         this.descrizione = body.descrizione();
         this.storia = body.storia();
-        this.data_di_classificazione = body.data_di_classificazione();
+        this.anno_di_classificazione = body.anno_di_classificazione();
         this.fenotipo = fenotipo;
+        if (body.img() != null) this.img = body.img();
         this.genere = genere;
     }
 
     public Specie(SpecieDTO body, Genere genere) {
         this.nome_comune = body.nome_comune();
+        this.nome = this.nome_comune;
         this.nome_scientifico = body.nome_scientifico();
         this.descrizione = body.descrizione();
         this.storia = body.storia();
-        this.data_di_classificazione = body.data_di_classificazione();
+        if (body.img() != null) this.img = body.img();
+        this.anno_di_classificazione = body.anno_di_classificazione();
         this.genere = genere;
     }
 }

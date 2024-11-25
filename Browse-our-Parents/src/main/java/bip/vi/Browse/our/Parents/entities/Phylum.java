@@ -16,26 +16,10 @@ import java.util.UUID;
 @Entity
 @Table(name = "phylums")
 @JsonIgnoreProperties("classi")
-public class Phylum {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Setter(AccessLevel.NONE)
-    private UUID id;
-
-    @Column(nullable = false)
-    private String name;
-    @Lob
-    private String descrizione;
-    @Lob
-    private String storia;
-
+public class Phylum extends Item{
     @ManyToOne
     @JoinColumn(name = "regno_id")
     private Regno regno;
-
-    public Regno getRegno() {
-        return this.regno;
-    }
 
     @ToString.Exclude
     @OneToMany(mappedBy = "phylum")
@@ -43,8 +27,9 @@ public class Phylum {
 
     public Phylum(PhylumDTO body, Regno found){
         this.descrizione = body.descrizione();
-        this.name = body.nome();
+        this.nome = body.nome();
         this.regno = found;
         this.storia = body.storia();
+        if (body.img() != null) this.img = body.img();
     }
 }

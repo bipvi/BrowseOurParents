@@ -15,19 +15,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "classi")
 @JsonIgnoreProperties("ordini")
-public class Classe {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Setter(AccessLevel.NONE)
-    private UUID id;
-
-    private String nome;
-    @Lob
-    @Column(length = 10000)
-    private String descrizione;
-    @Lob
-    private String storia;
-
+public class Classe extends Item{
     @ManyToOne
     @JoinColumn(name = "phylum_id")
     private Phylum phylum;
@@ -40,5 +28,8 @@ public class Classe {
         this.nome = body.nome();
         this.storia = body.storia();
         this.phylum = phylum;
+        if (body.img() != null) {
+            this.img = body.img();
+        }
     }
 }

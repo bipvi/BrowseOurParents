@@ -12,7 +12,7 @@ import java.util.UUID;
 public interface RegnoRepository extends JpaRepository<Regno, UUID> {
     Page<Regno> findByNomeContainingIgnoreCase(String nome, Pageable pageable);
 
-    Page<Regno> findByDescrzioneContainingIgnoreCase(String descrzione, Pageable pageable);
+    Page<Regno> findByDescrizioneContainingIgnoreCase(String descrizione, Pageable pageable);
 
     Page<Regno> findByStoriaContainingIgnoreCase(String storia, Pageable pageable);
 }

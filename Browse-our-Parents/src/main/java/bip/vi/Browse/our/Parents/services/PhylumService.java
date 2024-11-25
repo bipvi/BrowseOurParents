@@ -42,7 +42,7 @@ public class PhylumService {
         found.setDescrizione(body.descrizione());
         found.setStoria(body.storia());
         found.setRegno(this.regnoService.findRegnoById(body.regno_id()));
-        found.setName(body.nome());
+        found.setNome(body.nome());
         return this.phylumRepository.save(found);
     }
 
@@ -55,7 +55,7 @@ public class PhylumService {
 
     public Page<Phylum> findPhylumQueryNome(int page, int size, String sort, String nome) {
         if (size > 5) size = 5;
-        return this.phylumRepository.findByNameContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
+        return this.phylumRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
     }
 
     public Page<Phylum> findPhylumByDescrizione(int page, int size, String sort, String descrizione){
