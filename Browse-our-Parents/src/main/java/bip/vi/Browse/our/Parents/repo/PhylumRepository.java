@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Repository
 public interface PhylumRepository extends JpaRepository<Phylum, UUID> {
-    Page<Phylum> findByNameContainingIgnoreCase(String name, Pageable pageable);
+    Page<Phylum> findByNomeContainingIgnoreCase(String nome, Pageable pageable);
 
     Page<Phylum> findByDescrizioneContainingIgnoreCase(String descrizione, Pageable pageable);
 

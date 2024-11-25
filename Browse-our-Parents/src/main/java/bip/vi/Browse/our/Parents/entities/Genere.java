@@ -16,19 +16,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "generi")
 @JsonIgnoreProperties("lista_specie")
-public class Genere {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Setter(AccessLevel.NONE)
-    private UUID id;
-
-    private String nome;
-    @Lob
-    @Column(length = 1000)
-    private String descrizione;
-    @Lob
-    private  String storia;
-
+public class Genere extends Item{
     @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "famiglia_id")
@@ -42,5 +30,6 @@ public class Genere {
         this.nome = body.nome();
         this.storia = body.storia();
         this.famiglia = famiglia;
+        if (body.img() != null) this.img = body.img();
     }
 }

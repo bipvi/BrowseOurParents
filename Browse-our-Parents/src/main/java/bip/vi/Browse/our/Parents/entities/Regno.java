@@ -15,24 +15,15 @@ import java.util.UUID;
 @Entity
 @Table(name = "regni")
 @JsonIgnoreProperties("phylums")
-public class Regno {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Setter(AccessLevel.NONE)
-    private UUID id;
-
-    @Column(nullable = false)
-    private String nome;
-    private String descrzione;
-    private String storia;
-
+public class Regno extends Item{
     @ToString.Exclude
     @OneToMany(mappedBy = "regno")
     private List<Phylum> phylums;
 
     public Regno(RegnoDTO body){
         this.nome = body.nome();
-        this.descrzione = body.descrzione();
+        this.descrizione = body.descrizione();
         this.storia = body.storia();
+        if (body.img() != null) this.img = body.img();
     }
 }

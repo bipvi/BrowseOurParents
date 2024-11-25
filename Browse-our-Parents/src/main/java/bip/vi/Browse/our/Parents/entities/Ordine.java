@@ -16,19 +16,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "ordini")
 @JsonIgnoreProperties("famiglie")
-public class Ordine {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Setter(AccessLevel.NONE)
-    private UUID id;
-
-    private String nome;
-    @Lob
-    @Column(length = 10000)
-    private String descrizione;
-    @Lob
-    private String storia;
-
+public class Ordine extends Item{
     @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "classe_id")
@@ -42,5 +30,6 @@ public class Ordine {
         this.nome = body.nome();
         this.descrizione = body.descrizione();
         this.storia = body.storia();
+        if (body.img() != null) this.img = body.img();
     }
 }

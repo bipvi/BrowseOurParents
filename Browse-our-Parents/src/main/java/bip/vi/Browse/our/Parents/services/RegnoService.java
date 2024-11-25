@@ -36,7 +36,7 @@ public class RegnoService {
     public Regno findRegnoAndUpdate(RegnoDTO body, String id) {
         Regno found = this.findRegnoById(id);
         found.setStoria(body.storia());
-        found.setDescrzione(body.descrzione());
+        found.setDescrizione(body.descrizione());
         found.setNome(body.nome());
         return this.regnoRepository.save(found);
     }
@@ -54,9 +54,9 @@ public class RegnoService {
         return this.regnoRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
     }
 
-    public Page<Regno> findRegniByDescrzione(int page, int size, String sort, String descrzione) {
+    public Page<Regno> findRegniByDescrzione(int page, int size, String sort, String descrizione) {
         if (size > 10) size = 10;
-        return this.regnoRepository.findByDescrzioneContainingIgnoreCase(descrzione, PageRequest.of(page, size, Sort.by(sort)));
+        return this.regnoRepository.findByDescrizioneContainingIgnoreCase(descrizione, PageRequest.of(page, size, Sort.by(sort)));
     }
 
     public Page<Regno> findRegniBystoria(int page, int size, String sort, String storia) {

@@ -4,7 +4,8 @@ import bip.vi.Browse.our.Parents.entities.Regno;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.URL;
 
-public record PhylumDTO(@NotNull(message = "Il campo nome non può essere vuoto") String nome,@Size(max = 255, message = "La descrizione deve avere massimo 255 caratteri") String descrizione,
-                        @Size(max = 255, message = "La storia deve avere massimo 255 caratteri")String storia, @NotNull String regno_id){
+public record PhylumDTO(@NotNull(message = "Il campo nome non può essere vuoto") String nome, @URL(message = "il campo img deve essere un url") String img, @Size(max = 800, message = "Il campo descrizione deve contenere massimo 800 caratteri") String descrizione,
+                        @Size(max = 800, message = "Il campo storia deve contenere massimo 800 caratteri") String storia, @NotNull(message = "Devi collegare il Regno ;)") String regno_id){
 }
