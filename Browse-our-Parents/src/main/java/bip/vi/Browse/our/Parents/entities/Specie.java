@@ -13,19 +13,16 @@ import java.util.UUID;
 @ToString
 @Setter
 @Entity
-@Table(name = "specie")
 public class Specie extends Item{
 
 
     private String nome_scientifico;
     private String nome_comune;
-    @Column(length = 800)
-    private String descrizione;
-    @Column(length = 800)
-    private String storia;
     private int anno_di_classificazione;
     @OneToOne(cascade = CascadeType.ALL)
     private Fenotipo fenotipo;
+
+
 
     @ToString.Exclude
     @ManyToOne
@@ -45,7 +42,7 @@ public class Specie extends Item{
 
     public Specie(SpecieDTO body, Genere genere) {
         this.nome_comune = body.nome_comune();
-        this.nome = this.nome_comune;
+        this.nome = body.nome_comune();
         this.nome_scientifico = body.nome_scientifico();
         this.descrizione = body.descrizione();
         this.storia = body.storia();

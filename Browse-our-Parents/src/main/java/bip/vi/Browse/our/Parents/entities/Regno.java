@@ -13,7 +13,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "regni")
 @JsonIgnoreProperties("phylums")
 public class Regno extends Item{
     @ToString.Exclude

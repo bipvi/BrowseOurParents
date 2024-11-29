@@ -14,7 +14,6 @@ import java.util.UUID;
 @ToString
 @Setter
 @Entity
-@Table(name = "generi")
 @JsonIgnoreProperties("lista_specie")
 public class Genere extends Item{
     @ToString.Exclude

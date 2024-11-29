@@ -36,7 +36,7 @@ public class AuthController {
     }
 
     //---------------------------------- SIGN-IN ------------------------------------------------------------------
-    @PostMapping("/sign_in")
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public User save(@RequestBody @Validated NewUserDTO body, BindingResult validationResult) {
         if (validationResult.hasErrors()) {

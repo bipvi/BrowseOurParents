@@ -5,6 +5,7 @@ import bip.vi.Browse.our.Parents.entities.Fenotipo;
 import bip.vi.Browse.our.Parents.entities.Genere;
 import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
+import bip.vi.Browse.our.Parents.services.ItemService;
 import bip.vi.Browse.our.Parents.services.SpecieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -22,6 +23,8 @@ import java.util.stream.Collectors;
 public class SpecieController {
     @Autowired
     private SpecieService specieService;
+    @Autowired
+    private ItemService itemService;
 
     // ------------------------------ Crud ------------------------------------
 

@@ -14,7 +14,6 @@ import java.util.UUID;
 @ToString
 @Setter
 @Entity
-@Table(name = "ordini")
 @JsonIgnoreProperties("famiglie")
 public class Ordine extends Item{
     @ToString.Exclude

@@ -14,7 +14,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "phylums")
 @JsonIgnoreProperties("classi")
 public class Phylum extends Item{
     @ManyToOne

@@ -13,7 +13,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString
 @Table(name = "items")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo")
 public abstract class Item {
     @Id
     @GeneratedValue

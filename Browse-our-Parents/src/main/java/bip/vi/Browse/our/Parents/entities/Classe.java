@@ -13,7 +13,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "classi")
 @JsonIgnoreProperties("ordini")
 public class Classe extends Item{
     @ManyToOne

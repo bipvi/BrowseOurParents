@@ -27,6 +27,8 @@ public class SpecieService extends SetImg {
     private FenotipoService fenotipoService;
     @Autowired
     private GenereService genereService;
+    @Autowired
+    private  ItemService itemService;
 
 
     //----------------------------- Crud ---------------------------------------------------
@@ -46,13 +48,16 @@ public class SpecieService extends SetImg {
     }
 
     public Specie findSpecieAndUpdate (String id, SpecieDTO body) {
+        System.out.println(body.toString());
         Specie found = this.findSpecieById(id);
+        found.setNome(body.nome_comune());
         found.setNome_comune(body.nome_comune());
         if (body.nome_scientifico() != null) found.setNome_scientifico(body.nome_scientifico());
         found.setDescrizione(body.descrizione());
         found.setStoria(body.storia());
         if (body.fenotipo_id() != null) found.setFenotipo(this.fenotipoService.findFenotipoById(body.fenotipo_id()));
         found.setGenere(this.genereService.findGenereById(body.genere_id()));
+        System.out.println(found);
         return found;
     }
 
