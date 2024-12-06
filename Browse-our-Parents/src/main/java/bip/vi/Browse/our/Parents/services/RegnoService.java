@@ -1,6 +1,7 @@
 package bip.vi.Browse.our.Parents.services;
 
 import bip.vi.Browse.our.Parents.DTO.RegnoDTO;
+import bip.vi.Browse.our.Parents.entities.Phylum;
 import bip.vi.Browse.our.Parents.entities.Regno;
 import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -73,5 +75,9 @@ public class RegnoService extends SetImg {
     public Page<Regno> findRegniBystoria(int page, int size, String sort, String storia) {
         if (size > 10) size = 10;
         return this.regnoRepository.findByStoriaContainingIgnoreCase(storia, PageRequest.of(page, size, Sort.by(sort)));
+    }
+
+    public List<Phylum> findPhylumsByRegnoId(String id) {
+        return this.findRegnoById(id).getPhylums();
     }
 }

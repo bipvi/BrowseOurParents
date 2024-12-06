@@ -2,6 +2,7 @@ package bip.vi.Browse.our.Parents.services;
 
 import bip.vi.Browse.our.Parents.DTO.ClasseDTO;
 import bip.vi.Browse.our.Parents.entities.Classe;
+import bip.vi.Browse.our.Parents.entities.Ordine;
 import bip.vi.Browse.our.Parents.entities.Phylum;
 import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
@@ -13,7 +14,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class ClasseService extends SetImg {
@@ -33,6 +37,11 @@ public class ClasseService extends SetImg {
         if (size > 50) size = 50;
         return this.classeRepository.findAll(PageRequest.of(page,size, Sort.by(sort)));
     }
+
+    public List<Classe> findAll(){
+        return this.classeRepository.findAll();
+    }
+
 
     public Classe findClasseById(String id) {
         return this.classeRepository.findById(UUID.fromString(id)).orElseThrow(() -> new NotFoundException("CLasse con id " + id + " non trovata"));
@@ -84,4 +93,14 @@ public class ClasseService extends SetImg {
      public Phylum getphylumByClasseId(String id) {
         return this.findClasseById(id).getPhylum();
      }
+
+    public Classe findClaseRandom() {
+        Random random = new Random();
+        List<String> ids = this.findAll().stream().map((c) -> c.getId().toString()).toList();
+        return this.findClasseById(ids.get(random.nextInt(ids.size())));
+    }
+
+    public List<Ordine> findOrdineByClasseId(String id) {
+        return this.findClasseById(id).getOrdini();
+    }
 }

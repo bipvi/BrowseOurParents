@@ -2,6 +2,7 @@ package bip.vi.Browse.our.Parents.controllers;
 
 import bip.vi.Browse.our.Parents.DTO.PasswordDTO;
 import bip.vi.Browse.our.Parents.DTO.UpdateUserDTO;
+import bip.vi.Browse.our.Parents.entities.Item;
 import bip.vi.Browse.our.Parents.entities.User;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
 import bip.vi.Browse.our.Parents.services.UserService;
@@ -159,5 +160,21 @@ public class UserController {
             throw new BadRequestException("Ci sono stati errori nel payload!");
         }
         this.userService.setUserPassword(userId, password);
+    }
+
+    // --------------- FAVOURITES -----------------------
+    @GetMapping("/me/fav")
+    public List<Item> getFavs (@AuthenticationPrincipal User user){
+        return this.userService.getUserFavourites(user.getId());
+    }
+
+    @PutMapping("/me/fav")
+    public Item addFav (@AuthenticationPrincipal User user, @RequestParam("fav" ) String favId){
+        return this.userService.addFavourites(user.getId(), favId);
+    }
+
+    @DeleteMapping("/me/fav")
+    public void removeFav (@AuthenticationPrincipal User user, @RequestParam("fav" ) String favId){
+        this.userService.removeFavourites(user.getId(), favId);
     }
 }

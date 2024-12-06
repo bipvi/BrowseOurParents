@@ -1,6 +1,7 @@
 package bip.vi.Browse.our.Parents.services;
 
 import bip.vi.Browse.our.Parents.DTO.PhylumDTO;
+import bip.vi.Browse.our.Parents.entities.Classe;
 import bip.vi.Browse.our.Parents.entities.Phylum;
 import bip.vi.Browse.our.Parents.entities.Regno;
 import bip.vi.Browse.our.Parents.entities.Specie;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -85,4 +87,6 @@ public class PhylumService extends SetImg{
         Phylum found = this.phylumRepository.findById(UUID.fromString(id)).orElseThrow(() -> new NotFoundException("not found"));
         return found.getRegno();
     }
+
+    public List<Classe> findClassiByPhylumId(String id){ return this.findPhylumById(id).getClassi(); }
 }

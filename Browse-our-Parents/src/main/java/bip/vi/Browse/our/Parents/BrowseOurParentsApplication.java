@@ -9,5 +9,4 @@ public class BrowseOurParentsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BrowseOurParentsApplication.class, args);
 	}
-
 }

@@ -2,6 +2,7 @@ package bip.vi.Browse.our.Parents.services;
 
 import bip.vi.Browse.our.Parents.DTO.NewUserDTO;
 import bip.vi.Browse.our.Parents.DTO.UpdateUserDTO;
+import bip.vi.Browse.our.Parents.entities.Item;
 import bip.vi.Browse.our.Parents.entities.User;
 import bip.vi.Browse.our.Parents.entities.enums.Ruolo;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
@@ -25,6 +26,8 @@ public class UserService {
     private PasswordEncoder bcrypt;
     @Autowired
     private Cloudinary cloudinary;
+    @Autowired
+    private ItemService itemService;
 
     //------------------------------ Crud -------------------------------
 
@@ -109,5 +112,27 @@ public class UserService {
         User found = this.findUserById(id);
         found.setRuolo(Ruolo.valueOf(ruolo.toUpperCase()));
         return this.userRepository.save(found);
+    }
+
+    // ---------------------- Favourite --------------------
+    public List<Item> getUserFavourites(int id) {
+        User found = this.findUserById(id);
+        return found.getFavourites();
+    }
+
+    public Item addFavourites (int id, String uuid) {
+        User found = this.findUserById(id);
+        List<Item> fav = found.getFavourites();
+        fav.add(this.itemService.findById(uuid));
+        found.setFavourites(fav);
+        this.userRepository.save(found);
+        return this.itemService.findById(uuid);
+    }
+
+    public void removeFavourites(int id, String uuid) {
+        User found = this.findUserById(id);
+        List<Item> fav = found.getFavourites();
+        fav.remove(this.itemService.findById(uuid));
+        found.setFavourites(fav);
     }
 }

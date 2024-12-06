@@ -1,6 +1,7 @@
 package bip.vi.Browse.our.Parents.controllers;
 
 import bip.vi.Browse.our.Parents.DTO.RegnoDTO;
+import bip.vi.Browse.our.Parents.entities.Phylum;
 import bip.vi.Browse.our.Parents.entities.Regno;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
 import bip.vi.Browse.our.Parents.services.RegnoService;
@@ -14,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -92,5 +94,12 @@ public class RegnoController {
                                @RequestParam(defaultValue = "10") int size,
                                @RequestParam(defaultValue = "descrizione") String sortBy){
         return this.regnoService.findRegniBystoria(page, size, sortBy, storiaQuery);
+    }
+
+    //--------------------------------- Get Phylums -----------------------------------------
+
+    @GetMapping("/{regnoId}/getPhylums")
+    public List<Phylum> getPhylumsByRegnoId (@PathVariable("regnoId") String regnoId){
+        return this.regnoService.findPhylumsByRegnoId(regnoId);
     }
 }

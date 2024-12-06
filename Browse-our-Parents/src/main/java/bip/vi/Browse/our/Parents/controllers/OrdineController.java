@@ -2,6 +2,7 @@ package bip.vi.Browse.our.Parents.controllers;
 
 import bip.vi.Browse.our.Parents.DTO.OrdineDTO;
 import bip.vi.Browse.our.Parents.entities.Classe;
+import bip.vi.Browse.our.Parents.entities.Famiglia;
 import bip.vi.Browse.our.Parents.entities.Ordine;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
 import bip.vi.Browse.our.Parents.services.OrdineService;
@@ -14,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -93,5 +95,12 @@ public class OrdineController {
     @GetMapping("/{ordineId}/getClasse")
     public Classe getClasseByordineId (@PathVariable("ordineId") String ordineId){
         return this.ordineService.getClasseByOrdineId(ordineId);
+    }
+
+    //--------------------------------- Get Famiglie -----------------------------------------
+
+    @GetMapping("/{ordineId}/getFamiglie")
+    public List<Famiglia> getFamiglieByordineId (@PathVariable("ordineId") String ordineId){
+        return this.ordineService.findFamigliaByOrdineId(ordineId);
     }
 }

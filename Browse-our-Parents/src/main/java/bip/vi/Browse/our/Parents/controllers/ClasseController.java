@@ -2,6 +2,7 @@ package bip.vi.Browse.our.Parents.controllers;
 
 import bip.vi.Browse.our.Parents.DTO.ClasseDTO;
 import bip.vi.Browse.our.Parents.entities.Classe;
+import bip.vi.Browse.our.Parents.entities.Ordine;
 import bip.vi.Browse.our.Parents.entities.Phylum;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
 import bip.vi.Browse.our.Parents.services.ClasseService;
@@ -14,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -99,5 +101,17 @@ public class ClasseController {
     @GetMapping("/{classeID}/getPhylum")
     public Phylum getPhylumByClasseID (@PathVariable("classeID") String classeID){
         return this.classeService.getphylumByClasseId(classeID);
+    }
+
+    //--------------------------------- Get Ordini -----------------------------------------
+
+    @GetMapping("/{classeID}/getOrdini")
+    public List<Ordine> getOrdiniyClasseID (@PathVariable("classeID") String classeID){
+        return this.classeService.findOrdineByClasseId(classeID);
+    }
+
+    @GetMapping("/getRandomly")
+    public Classe getRandomly(){
+        return this.classeService.findClaseRandom();
     }
 }

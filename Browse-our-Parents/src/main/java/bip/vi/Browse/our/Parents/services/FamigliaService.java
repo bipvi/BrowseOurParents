@@ -2,6 +2,7 @@ package bip.vi.Browse.our.Parents.services;
 
 import bip.vi.Browse.our.Parents.DTO.FamigliaDTO;
 import bip.vi.Browse.our.Parents.entities.Famiglia;
+import bip.vi.Browse.our.Parents.entities.Genere;
 import bip.vi.Browse.our.Parents.entities.Ordine;
 import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.NotFoundException;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -89,7 +91,9 @@ public class FamigliaService extends SetImg {
 
     public Ordine getOrdineByFamigliaId (String id){
         return this.findFamigliaById(id).getOrdine();
-
     }
 
+    public List<Genere> getGeneriByFamigliaId (String id){
+        return this.findFamigliaById(id).getGeneri();
+    }
 }

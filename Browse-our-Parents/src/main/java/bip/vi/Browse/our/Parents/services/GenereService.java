@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -84,4 +85,6 @@ public class GenereService extends SetImg {
     public Famiglia findFamigliaByGenereId(String id) {
         return  this.findGenereById(id).getFamiglia();
     }
+
+    public List<Specie> findSpecieByGenereId(String id) { return  this.findGenereById(id).getLista_specie(); }
 }

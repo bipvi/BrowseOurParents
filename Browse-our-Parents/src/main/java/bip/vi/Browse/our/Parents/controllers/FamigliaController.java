@@ -2,6 +2,7 @@ package bip.vi.Browse.our.Parents.controllers;
 
 import bip.vi.Browse.our.Parents.DTO.FamigliaDTO;
 import bip.vi.Browse.our.Parents.entities.Famiglia;
+import bip.vi.Browse.our.Parents.entities.Genere;
 import bip.vi.Browse.our.Parents.entities.Ordine;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
 import bip.vi.Browse.our.Parents.services.FamigliaService;
@@ -14,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -99,5 +101,12 @@ public class FamigliaController {
     @GetMapping("/{famigliaId}/getOrdine")
     public Ordine getPhylumByFamigliaID (@PathVariable("famigliaId") String famigliaId){
         return this.famigliaService.getOrdineByFamigliaId(famigliaId);
+    }
+
+    //--------------------------------- Get Generi -----------------------------------------
+
+    @GetMapping("/{famigliaId}/getGeneri")
+    public List<Genere> getGeneriByFamigliaID (@PathVariable("famigliaId") String famigliaId){
+        return this.famigliaService.getGeneriByFamigliaId(famigliaId);
     }
 }

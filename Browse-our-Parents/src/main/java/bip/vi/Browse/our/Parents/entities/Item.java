@@ -29,4 +29,7 @@ public abstract class Item {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
     private List<Commento> commenti;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "favourites")
+    private List<User> users;
 }

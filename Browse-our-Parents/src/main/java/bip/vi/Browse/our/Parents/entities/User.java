@@ -34,6 +34,14 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Ruolo ruolo;
 
+    @ManyToMany
+    @JoinTable(
+            name = "favourite",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "items_id")
+    )
+    private List<Item> favourites;
+
     public User(LoginDTO body){
         this.username = body.username();
         this.password = body.password();

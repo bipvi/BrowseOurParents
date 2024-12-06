@@ -6,18 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="9208ca4c-4570-4a07-8fa9-435f1a875d55" name="Changes" comment="add comments and popolate db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/config/JWTCheckerFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/config/JWTCheckerFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/BrowseOurParentsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/BrowseOurParentsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/SpecieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/SpecieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Classe.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Classe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Famiglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Famiglia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Genere.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Genere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/ClasseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/FamigliaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/FamigliaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/GenereController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/GenereController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/OrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/OrdineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/PhylumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/PhylumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/RegnoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/RegnoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Ordine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Phylum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Phylum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Regno.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Regno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Specie.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Specie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/ClasseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/ClasseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/FamigliaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/FamigliaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/GenereService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/GenereService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/OrdineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/OrdineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/PhylumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/PhylumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/RegnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/RegnoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/SpecieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/SpecieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +117,12 @@
       <workItem from="1732541916964" duration="4598000" />
       <workItem from="1732722840204" duration="12000" />
       <workItem from="1732724262166" duration="19000" />
-      <workItem from="1732834872371" duration="4111000" />
+      <workItem from="1732834872371" duration="11362000" />
+      <workItem from="1733161889333" duration="2000" />
+      <workItem from="1733184517230" duration="56000" />
+      <workItem from="1733277045002" duration="1142000" />
+      <workItem from="1733392788406" duration="7427000" />
+      <workItem from="1733501584990" duration="2214000" />
     </task>
     <task id="LOCAL-00001" summary="add comments and popolate db">
       <option name="closed" value="true" />

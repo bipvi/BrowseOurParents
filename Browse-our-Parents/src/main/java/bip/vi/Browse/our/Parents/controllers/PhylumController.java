@@ -1,6 +1,7 @@
 package bip.vi.Browse.our.Parents.controllers;
 
 import bip.vi.Browse.our.Parents.DTO.PhylumDTO;
+import bip.vi.Browse.our.Parents.entities.Classe;
 import bip.vi.Browse.our.Parents.entities.Phylum;
 import bip.vi.Browse.our.Parents.entities.Regno;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
@@ -14,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -93,5 +95,12 @@ public class PhylumController {
     @GetMapping("/{phylumId}/getRegno")
     public Regno getRegnoByPhylumId (@PathVariable("phylumId") String phylumId){
         return this.phylumService.findRegnoByPhylumId(phylumId);
+    }
+
+    //--------------------------------- Get Classi -----------------------------------------
+
+    @GetMapping("/{phylumId}/getClassi")
+    public List<Classe> getClassiByPhylumId (@PathVariable("phylumId") String phylumId){
+        return this.phylumService.findClassiByPhylumId(phylumId);
     }
 }

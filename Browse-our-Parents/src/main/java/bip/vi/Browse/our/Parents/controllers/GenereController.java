@@ -3,6 +3,8 @@ package bip.vi.Browse.our.Parents.controllers;
 import bip.vi.Browse.our.Parents.DTO.GenereDTO;
 import bip.vi.Browse.our.Parents.entities.Famiglia;
 import bip.vi.Browse.our.Parents.entities.Genere;
+import bip.vi.Browse.our.Parents.entities.Ordine;
+import bip.vi.Browse.our.Parents.entities.Specie;
 import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
 import bip.vi.Browse.our.Parents.services.GenereService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -93,5 +96,12 @@ public class GenereController {
     @GetMapping("/{genereId}/getFamiglia")
     public Famiglia getFamigliaBygenereId(@PathVariable("genereId") String genereId){
         return this.genereService.findFamigliaByGenereId(genereId);
+    }
+
+    //--------------------------------- Get Specie -----------------------------------------
+
+    @GetMapping("/{genereId}/getSpecie")
+    public List<Specie> getListaSpecieByGenereID (@PathVariable("genereId") String genereId){
+        return this.genereService.findSpecieByGenereId(genereId);
     }
 }
