@@ -1,6 +1,7 @@
 package bip.vi.Browse.our.Parents.entities;
 
 import bip.vi.Browse.our.Parents.DTO.CommentoDTO;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "commento")
+@JsonIgnoreProperties("item")
 public class Commento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

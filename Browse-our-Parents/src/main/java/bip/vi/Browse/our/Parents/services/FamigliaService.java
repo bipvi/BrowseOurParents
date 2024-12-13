@@ -31,9 +31,8 @@ public class FamigliaService extends SetImg {
         return this.famigliaRepository.save(famiglia);
     }
 
-    public Page<Famiglia> findAllFamiglie(int page, int size, String sort){
-        if (size > 25) size = 25;
-        return this.famigliaRepository.findAll(PageRequest.of(page, size, Sort.by(sort)));
+    public List<Famiglia> findAllFamiglie(){
+        return this.famigliaRepository.findAll();
     }
 
     public Famiglia findFamigliaById(String id){
@@ -66,9 +65,8 @@ public class FamigliaService extends SetImg {
 
     //-------------------------------- Query ----------------------------------------------------
 
-    public Page<Famiglia> findFamiglieByNome (String nome, int page, int size, String sort){
-        if (size > 25) size = 25;
-        return this.famigliaRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Famiglia> findFamiglieByNome (String nome){
+        return this.famigliaRepository.findByNomeContainingIgnoreCase(nome);
     }
 
 //    public Page<Famiglia> findFamiglieByOrdine (String ordine, int page, int size, String sort){
@@ -77,14 +75,12 @@ public class FamigliaService extends SetImg {
 //        return this.famigliaRepository.findByOrdine()
 //    }
 
-    public Page<Famiglia> findFamiglieByDescrizione (String descrizione, int page, int size, String sort){
-        if (size > 25) size = 25;
-        return this.famigliaRepository.findByDescrizioneContainingIgnoreCase(descrizione, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Famiglia> findFamiglieByDescrizione (String descrizione){
+        return this.famigliaRepository.findByDescrizioneContainingIgnoreCase(descrizione);
     }
 
-    public Page<Famiglia> findFamiglieByStoria (String storia, int page, int size, String sort){
-        if (size > 25) size = 25;
-        return this.famigliaRepository.findByStoriaContainingIgnoreCase(storia, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Famiglia> findFamiglieByStoria (String storia){
+        return this.famigliaRepository.findByStoriaContainingIgnoreCase(storia);
     }
 
     //------------------------------------- Get Ordine -------------------------------------------

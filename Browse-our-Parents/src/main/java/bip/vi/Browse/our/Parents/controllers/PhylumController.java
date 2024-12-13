@@ -33,10 +33,8 @@ public class PhylumController {
     }
 
     @GetMapping
-    public Page<Phylum> findAll(@RequestParam(defaultValue = "1") int page,
-                          @RequestParam(defaultValue = "10") int size,
-                          @RequestParam(defaultValue = "nome") String sortBy) {
-        return this.phylumService.findAllPhylum(page, size, sortBy);
+    public List<Phylum> findAll() {
+        return this.phylumService.findAllPhylum();
     }
 
     // --------------------- POST ---------------------
@@ -67,27 +65,18 @@ public class PhylumController {
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/nomeQuery")
-    public Page<Phylum> findByNome(@RequestParam String nomeQuery,
-                             @RequestParam(defaultValue = "1") int page,
-                             @RequestParam(defaultValue = "10") int size,
-                             @RequestParam(defaultValue = "nome") String sortBy){
-        return this.phylumService.findPhylumQueryNome(page, size, sortBy, nomeQuery);
+    public List<Phylum> findByNome(@RequestParam String nomeQuery){
+        return this.phylumService.findPhylumQueryNome( nomeQuery);
     }
 
     @GetMapping("/descQuery")
-    public Page<Phylum> findByDescrizione(@RequestParam String descQuery,
-                                    @RequestParam(defaultValue = "1") int page,
-                                    @RequestParam(defaultValue = "10") int size,
-                                    @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.phylumService.findPhylumByDescrizione(page, size, sortBy, descQuery );
+    public List<Phylum> findByDescrizione(@RequestParam String descQuery){
+        return this.phylumService.findPhylumByDescrizione( descQuery );
     }
 
     @GetMapping("/storiaQuery")
-    public Page<Phylum> findByStoria(@RequestParam String storiaQuery,
-                               @RequestParam(defaultValue = "1") int page,
-                               @RequestParam(defaultValue = "10") int size,
-                               @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.phylumService.findPhylumByStoria(page, size, sortBy, storiaQuery);
+    public List<Phylum> findByStoria(@RequestParam String storiaQuery){
+        return this.phylumService.findPhylumByStoria(storiaQuery);
     }
 
     //--------------------------------- Get Regno -----------------------------------------

@@ -33,9 +33,8 @@ public class ClasseService extends SetImg {
         return this.classeRepository.save(classe);
     }
 
-    public Page<Classe> findAllClassi(int page, int size, String sort) {
-        if (size > 50) size = 50;
-        return this.classeRepository.findAll(PageRequest.of(page,size, Sort.by(sort)));
+    public List<Classe> findAllClassi() {
+        return this.classeRepository.findAll();
     }
 
     public List<Classe> findAll(){
@@ -74,19 +73,16 @@ public class ClasseService extends SetImg {
 
     //------------------------------------- Query --------------------------------------------
 
-    public Page<Classe> findClassiByName(int page, int size, String sort, String nome) {
-        if (size > 50) size = 50;
-        return this.classeRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page,size, Sort.by(sort)));
+    public List<Classe> findClassiByName(String nome) {
+        return this.classeRepository.findByNomeContainingIgnoreCase(nome);
     }
 
-    public Page<Classe> findClassiByDescrizione(int page, int size, String sort, String descrizione) {
-        if (size > 50) size = 50;
-        return this.classeRepository.findByDescrizioneContainingIgnoreCase(descrizione, PageRequest.of(page,size, Sort.by(sort)));
+    public List<Classe> findClassiByDescrizione(String descrizione) {
+        return this.classeRepository.findByDescrizioneContainingIgnoreCase(descrizione);
     }
 
-    public Page<Classe> findClassiByStroia (int page, int size, String sort, String storia) {
-        if (size > 50) size = 50;
-        return this.classeRepository.findByStoriaContainingIgnoreCase(storia, PageRequest.of(page,size, Sort.by(sort)));
+    public List<Classe> findClassiByStroia (String storia) {
+        return this.classeRepository.findByStoriaContainingIgnoreCase(storia);
     }
 
     //------------------------------------ Get Phylum -----------------------------------------

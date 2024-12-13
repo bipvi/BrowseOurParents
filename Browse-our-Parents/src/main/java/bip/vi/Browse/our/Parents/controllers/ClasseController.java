@@ -33,10 +33,8 @@ public class ClasseController {
     }
 
     @GetMapping
-    public Page<Classe> findAllClassi(@RequestParam(defaultValue = "1") int page,
-                                      @RequestParam(defaultValue = "10") int size,
-                                      @RequestParam(defaultValue = "nome") String sortBy) {
-        return this.classeService.findAllClassi(page, size, sortBy);
+    public List<Classe> findAllClassi() {
+        return this.classeService.findAllClassi();
     }
 
     // --------------------- POST ---------------------
@@ -73,27 +71,18 @@ public class ClasseController {
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/nomeQuery")
-    public Page<Classe> findClassiByNome(@RequestParam String nomeQuery,
-                                         @RequestParam(defaultValue = "1") int page,
-                                         @RequestParam(defaultValue = "10") int size,
-                                         @RequestParam(defaultValue = "nome") String sortBy){
-        return this.classeService.findClassiByName(page, size, sortBy ,nomeQuery);
+    public List<Classe> findClassiByNome(@RequestParam String nomeQuery){
+        return this.classeService.findClassiByName(nomeQuery);
     }
 
     @GetMapping("/descQuery")
-    public Page<Classe> findClassiByDescrizione(@RequestParam String descQuery,
-                                         @RequestParam(defaultValue = "1") int page,
-                                         @RequestParam(defaultValue = "10") int size,
-                                         @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.classeService.findClassiByDescrizione(page, size, sortBy ,descQuery);
+    public List<Classe> findClassiByDescrizione(@RequestParam String descQuery){
+        return this.classeService.findClassiByDescrizione(descQuery);
     }
 
     @GetMapping("/storiaQuery")
-    public Page<Classe> findClassiByStroia(@RequestParam String storiaQuery,
-                                                @RequestParam(defaultValue = "1") int page,
-                                                @RequestParam(defaultValue = "10") int size,
-                                                @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.classeService.findClassiByStroia(page, size, sortBy ,storiaQuery);
+    public List<Classe> findClassiByStroia(@RequestParam String storiaQuery){
+        return this.classeService.findClassiByStroia(storiaQuery);
     }
 
     //--------------------------------- Get Phylum -----------------------------------------

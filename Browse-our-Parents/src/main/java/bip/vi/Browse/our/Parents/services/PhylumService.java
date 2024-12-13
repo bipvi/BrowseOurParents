@@ -32,9 +32,8 @@ public class PhylumService extends SetImg{
         return this.phylumRepository.save(phylum);
     }
 
-    public Page<Phylum> findAllPhylum(int page, int size, String sort){
-        if (size > 5) size = 5;
-        return this.phylumRepository.findAll(PageRequest.of(page, size, Sort.by(sort)));
+    public List<Phylum> findAllPhylum(){
+        return this.phylumRepository.findAll();
     }
 
     public Phylum findPhylumById(String id){
@@ -66,19 +65,16 @@ public class PhylumService extends SetImg{
 
     //------------------------ Query ---------------------------------------------------------
 
-    public Page<Phylum> findPhylumQueryNome(int page, int size, String sort, String nome) {
-        if (size > 5) size = 5;
-        return this.phylumRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Phylum> findPhylumQueryNome(String nome) {
+        return this.phylumRepository.findByNomeContainingIgnoreCase(nome);
     }
 
-    public Page<Phylum> findPhylumByDescrizione(int page, int size, String sort, String descrizione){
-        if (size > 5) size = 5;
-        return this.phylumRepository.findByDescrizioneContainingIgnoreCase(descrizione, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Phylum> findPhylumByDescrizione(String descrizione){
+        return this.phylumRepository.findByDescrizioneContainingIgnoreCase(descrizione);
     }
 
-    public Page<Phylum> findPhylumByStoria(int page, int size, String sort, String storia){
-        if (size > 5) size = 5;
-        return this.phylumRepository.findByStoriaContainingIgnoreCase(storia, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Phylum> findPhylumByStoria(String storia){
+        return this.phylumRepository.findByStoriaContainingIgnoreCase(storia);
     }
 
     //--------------------------------------------- Get Regno -----------------------------------------------------

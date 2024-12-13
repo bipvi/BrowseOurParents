@@ -8,7 +8,6 @@ import bip.vi.Browse.our.Parents.exceptions.BadRequestException;
 import bip.vi.Browse.our.Parents.services.FamigliaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
@@ -33,10 +32,8 @@ public class FamigliaController {
     }
 
     @GetMapping
-    public Page<Famiglia> findAllFamiglie(@RequestParam(defaultValue = "1") int page,
-                                      @RequestParam(defaultValue = "10") int size,
-                                      @RequestParam(defaultValue = "nome") String sortBy) {
-        return this.famigliaService.findAllFamiglie(page, size, sortBy);
+    public List<Famiglia> findAllFamiglie() {
+        return this.famigliaService.findAllFamiglie();
     }
 
     // --------------------- POST ---------------------
@@ -73,27 +70,18 @@ public class FamigliaController {
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/nomeQuery")
-    public Page<Famiglia> findFamiglieByNome(@RequestParam String nomeQuery,
-                                         @RequestParam(defaultValue = "1") int page,
-                                         @RequestParam(defaultValue = "10") int size,
-                                         @RequestParam(defaultValue = "nome") String sortBy){
-        return this.famigliaService.findFamiglieByNome(nomeQuery, page, size, sortBy);
+    public List<Famiglia> findFamiglieByNome(@RequestParam String nomeQuery){
+        return this.famigliaService.findFamiglieByNome(nomeQuery);
     }
 
     @GetMapping("/descQuery")
-    public Page<Famiglia> findFamiglieByDescrizione(@RequestParam String descQuery,
-                                                @RequestParam(defaultValue = "1") int page,
-                                                @RequestParam(defaultValue = "10") int size,
-                                                @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.famigliaService.findFamiglieByDescrizione(descQuery, page, size, sortBy );
+    public List<Famiglia> findFamiglieByDescrizione(@RequestParam String descQuery){
+        return this.famigliaService.findFamiglieByDescrizione(descQuery);
     }
 
     @GetMapping("/storiaQuery")
-    public Page<Famiglia> findFamiglieByStoria(@RequestParam String storiaQuery,
-                                           @RequestParam(defaultValue = "1") int page,
-                                           @RequestParam(defaultValue = "10") int size,
-                                           @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.famigliaService.findFamiglieByStoria(storiaQuery, page, size, sortBy);
+    public List<Famiglia> findFamiglieByStoria(@RequestParam String storiaQuery){
+        return this.famigliaService.findFamiglieByStoria(storiaQuery);
     }
 
     //--------------------------------- Get Ordine -----------------------------------------

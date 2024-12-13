@@ -168,12 +168,13 @@ public class UserController {
         return this.userService.getUserFavourites(user.getId());
     }
 
-    @PutMapping("/me/fav")
+    @PostMapping("/me/fav")
     public Item addFav (@AuthenticationPrincipal User user, @RequestParam("fav" ) String favId){
         return this.userService.addFavourites(user.getId(), favId);
     }
 
     @DeleteMapping("/me/fav")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeFav (@AuthenticationPrincipal User user, @RequestParam("fav" ) String favId){
         this.userService.removeFavourites(user.getId(), favId);
     }

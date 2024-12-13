@@ -1,5 +1,7 @@
 package bip.vi.Browse.our.Parents.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,5 +33,13 @@ public abstract class Item {
     private List<Commento> commenti;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "favourites")
+    @JsonManagedReference
     private List<User> users;
+    @JsonProperty("tipo")
+    @Transient // Non mappato come proprietà standard del database
+    public String getTipo() {
+        DiscriminatorValue annotation = this.getClass().getAnnotation(DiscriminatorValue.class);
+        return annotation != null ? annotation.value() : this.getClass().getSimpleName();
+
+    }
 }

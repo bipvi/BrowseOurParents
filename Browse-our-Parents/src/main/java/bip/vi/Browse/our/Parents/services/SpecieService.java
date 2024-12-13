@@ -18,7 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class SpecieService extends SetImg {
@@ -39,9 +41,8 @@ public class SpecieService extends SetImg {
         return specieRepository.save(specie);
     }
 
-    public Page<Specie> findAllSpecie(int page, int size, String sort) {
-        if (size > 100) size = 100;
-        return this.specieRepository.findAll(PageRequest.of(page, size, Sort.by(sort)));
+    public List<Specie> findAllSpecie() {
+        return this.specieRepository.findAll();
     }
 
     public Specie findSpecieById(String id) {
@@ -79,23 +80,20 @@ public class SpecieService extends SetImg {
 
     //------------------------------------ Query ----------------------------------------------------
 
-    public Page<Specie> findSpecoeByNome (String nome_comune, int page, int size, String sort) {
-        if (size > 100) size = 100;
-        return  this.specieRepository.findByNome_comuneContainingIgnoreCase(nome_comune, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Specie> findSpecoeByNome (String nome_comune) {
+        return  this.specieRepository.findByNome_comuneContainingIgnoreCaseAndNome_scientificoContainsIgnoreCase(nome_comune, nome_comune);
     }
 
-    public Page<Specie> findSpecieByDescrizione (String search, int page, int size, String sort) {
-        if (size > 100) size = 100;
-        return this.specieRepository.findByDescrizioneContainingIgnoreCase(search, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Specie> findSpecieByDescrizione (String search) {
+        return this.specieRepository.findByDescrizioneContainingIgnoreCase(search);
     }
 
-    public Page<Specie> findSpecieByStoria (String storia, int page, int size, String sort) {
-        if (size > 100) size = 100;
-        return this.specieRepository.findByStoriaContainingIgnoreCase(storia, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Specie> findSpecieByStoria (String storia) {
+        return this.specieRepository.findByStoriaContainingIgnoreCase(storia);
     }
 
     public Specie findSpecieByFenotipoNome (String nomeFenotipo) {
-        return this.fenotipoService.findFenotipiByNome(1,1, "nome", nomeFenotipo).getContent().get(1).getSpecie();
+        return this.fenotipoService.findFenotipiByNome( nomeFenotipo).get(1).getSpecie();
     }
 
     //-------------------------------------- Get Genere e Fenotipo ------------------------------------------
@@ -106,5 +104,11 @@ public class SpecieService extends SetImg {
 
     public Fenotipo findFenotipoBySpecieId (String id) {
         return this.findSpecieById(id).getFenotipo();
+    }
+
+    public Specie getRandomSpecie() {
+        List<Specie> species = this.specieRepository.findAll();
+        Random random = new Random();
+        return species.get(random.nextInt(species.size()));
     }
 }

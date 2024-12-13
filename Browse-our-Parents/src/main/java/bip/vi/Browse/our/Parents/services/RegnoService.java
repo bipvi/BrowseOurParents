@@ -28,9 +28,8 @@ public class RegnoService extends SetImg {
         return this.regnoRepository.save(regno);
     }
 
-    public Page<Regno> findAllRegni(int page, int size, String sort) {
-        if (size > 10) size = 10;
-        return this.regnoRepository.findAll(PageRequest.of(page, size, Sort.by(sort)));
+    public List<Regno> findAllRegni() {
+        return this.regnoRepository.findAll();
     }
 
     public Regno findRegnoById(String id) {
@@ -62,19 +61,16 @@ public class RegnoService extends SetImg {
 
     //------------------------------ Query ------------------------------------------------
 
-    public Page<Regno> findRegniByNome(int page, int size, String sort, String nome) {
-        if (size > 10) size = 10;
-        return this.regnoRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Regno> findRegniByNome(String nome) {
+        return this.regnoRepository.findByNomeContainingIgnoreCase(nome);
     }
 
-    public Page<Regno> findRegniByDescrzione(int page, int size, String sort, String descrizione) {
-        if (size > 10) size = 10;
-        return this.regnoRepository.findByDescrizioneContainingIgnoreCase(descrizione, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Regno> findRegniByDescrzione( String descrizione) {
+        return this.regnoRepository.findByDescrizioneContainingIgnoreCase(descrizione);
     }
 
-    public Page<Regno> findRegniBystoria(int page, int size, String sort, String storia) {
-        if (size > 10) size = 10;
-        return this.regnoRepository.findByStoriaContainingIgnoreCase(storia, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Regno> findRegniBystoria(String storia) {
+        return this.regnoRepository.findByStoriaContainingIgnoreCase(storia);
     }
 
     public List<Phylum> findPhylumsByRegnoId(String id) {

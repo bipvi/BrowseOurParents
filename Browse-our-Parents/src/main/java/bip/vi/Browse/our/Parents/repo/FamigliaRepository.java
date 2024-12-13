@@ -7,13 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface FamigliaRepository extends JpaRepository<Famiglia, UUID> {
-    Page<Famiglia> findByNomeContainingIgnoreCase(String nome, Pageable pageable);
+    List<Famiglia> findByNomeContainingIgnoreCase(String nome);
 
-    Page<Famiglia> findByDescrizioneContainingIgnoreCase(String descrizione, Pageable pageable);
+    List<Famiglia> findByDescrizioneContainingIgnoreCase(String descrizione );
 
-    Page<Famiglia> findByStoriaContainingIgnoreCase(String storia, Pageable pageable);
+    List<Famiglia> findByStoriaContainingIgnoreCase(String storia );
 }

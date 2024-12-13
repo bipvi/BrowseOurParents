@@ -134,5 +134,6 @@ public class UserService {
         List<Item> fav = found.getFavourites();
         fav.remove(this.itemService.findById(uuid));
         found.setFavourites(fav);
+        this.userRepository.save(found);
     }
 }

@@ -8,14 +8,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface SpecieRepository extends JpaRepository<Specie, UUID> {
-    Page<Specie> findByDescrizioneContainingIgnoreCase(String descrizione, Pageable pageable);
+    List<Specie> findByDescrizioneContainingIgnoreCase(String descrizione);
 
-    Page<Specie> findByStoriaContainingIgnoreCase(String storia, Pageable pageable);
+    List<Specie> findByStoriaContainingIgnoreCase(String storia);
 
-    @Query("SELECT s FROM Specie s WHERE LOWER(s.nome_comune) LIKE LOWER(CONCAT('%', :nomeComune, '%'))")
-    Page<Specie> findByNome_comuneContainingIgnoreCase(String nomeComune, Pageable pageable);
+    @Query("SELECT e FROM Specie e WHERE LOWER(e.nome_comune) LIKE LOWER(CONCAT('%', :nomeComune, '%')) OR LOWER(e.nome_scientifico) LIKE LOWER(CONCAT('%', :nomeScientifico, '%'))")
+    List<Specie> findByNome_comuneContainingIgnoreCaseAndNome_scientificoContainsIgnoreCase(String nomeComune, String nomeScientifico);
 }

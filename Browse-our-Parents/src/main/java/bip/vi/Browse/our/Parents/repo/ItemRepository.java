@@ -6,15 +6,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, UUID> {
-    Page<Item> findByNomeContainingIgnoreCase(String nome, Pageable pageable);
+    List<Item> findByNomeContainingIgnoreCase(String nome );
 
-    Page<Item> findByDescrizioneContainingIgnoreCase(String descrizione, Pageable pageable);
+    List<Item> findByDescrizioneContainingIgnoreCase(String descrizione );
 
-    Page<Item> findByStoriaContainingIgnoreCase(String storia, Pageable pageable);
+    List<Item> findByStoriaContainingIgnoreCase(String storia );
 
   //  Page<Item> findByDescrizioneContainingIgnoreCaseOrStoriaContainingIgnoreCaseOrNomeContainingIgnoreCase(String descrizione, String storia, String nome, Pageable pageable);
 }

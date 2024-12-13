@@ -33,10 +33,8 @@ public class RegnoController {
     }
 
     @GetMapping
-    public Page<Regno> findAll(@RequestParam(defaultValue = "1") int page,
-                               @RequestParam(defaultValue = "10") int size,
-                               @RequestParam(defaultValue = "nome") String sortBy) {
-        return this.regnoService.findAllRegni(page, size, sortBy);
+    public List<Regno> findAll() {
+        return this.regnoService.findAllRegni();
     }
 
     // --------------------- POST ---------------------
@@ -73,27 +71,18 @@ public class RegnoController {
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/nomeQuery")
-    public Page<Regno> findByNome(@RequestParam String nomeQuery,
-                             @RequestParam(defaultValue = "1") int page,
-                             @RequestParam(defaultValue = "10") int size,
-                             @RequestParam(defaultValue = "nome") String sortBy){
-        return this.regnoService.findRegniByNome(page, size, sortBy, nomeQuery);
+    public List<Regno> findByNome(@RequestParam String nomeQuery){
+        return this.regnoService.findRegniByNome(nomeQuery);
     }
 
     @GetMapping("/descQuery")
-    public Page<Regno> findByDescrizione(@RequestParam String descQuery,
-                                    @RequestParam(defaultValue = "1") int page,
-                                    @RequestParam(defaultValue = "10") int size,
-                                    @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.regnoService.findRegniByDescrzione(page, size, sortBy, descQuery);
+    public List<Regno> findByDescrizione(@RequestParam String descQuery){
+        return this.regnoService.findRegniByDescrzione(descQuery);
     }
 
     @GetMapping("/storiaQuery")
-    public Page<Regno> findByStoria(@RequestParam String storiaQuery,
-                               @RequestParam(defaultValue = "1") int page,
-                               @RequestParam(defaultValue = "10") int size,
-                               @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.regnoService.findRegniBystoria(page, size, sortBy, storiaQuery);
+    public List<Regno> findByStoria(@RequestParam String storiaQuery){
+        return this.regnoService.findRegniBystoria( storiaQuery);
     }
 
     //--------------------------------- Get Phylums -----------------------------------------

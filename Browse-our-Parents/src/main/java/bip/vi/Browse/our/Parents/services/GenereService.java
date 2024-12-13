@@ -34,9 +34,8 @@ public class GenereService extends SetImg {
         return this.genereRepository.findById(UUID.fromString(id)).orElseThrow(() -> new NotFoundException("Genere con id: " + id + " non trovato"));
     }
 
-    public Page<Genere> findAllGeneri(int page, int size, String sort) {
-        if (size > 50) size = 50;
-        return this.genereRepository.findAll(PageRequest.of(page, size, Sort.by(sort)));
+    public List<Genere> findAllGeneri() {
+        return this.genereRepository.findAll();
     }
 
     public Genere findAndUpdateGenere(String id, GenereDTO body) {
@@ -65,19 +64,16 @@ public class GenereService extends SetImg {
 
     //---------------------------------- Query ------------------------------------------------------
 
-    public Page<Genere> findGenereByNome(int page, int size, String sort, String nome) {
-        if (size > 50) size = 50;
-        return this.genereRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Genere> findGenereByNome( String nome) {
+        return this.genereRepository.findByNomeContainingIgnoreCase(nome);
     }
 
-    public Page<Genere> findGenereByDescrizione(int page, int size, String sort, String descrizione) {
-        if (size > 50) size = 50;
-        return this.genereRepository.findByDescrizioneContainingIgnoreCase(descrizione, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Genere> findGenereByDescrizione(String descrizione) {
+        return this.genereRepository.findByDescrizioneContainingIgnoreCase(descrizione);
     }
 
-    public Page<Genere> findGenereByStoria(int page, int size, String sort, String storia) {
-        if (size > 50) size = 50;
-        return this.genereRepository.findByStoriaContainingIgnoreCase(storia, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Genere> findGenereByStoria( String storia) {
+        return this.genereRepository.findByStoriaContainingIgnoreCase(storia);
     }
 
     //----------------------------------------- Get Famiglia --------------------------------------

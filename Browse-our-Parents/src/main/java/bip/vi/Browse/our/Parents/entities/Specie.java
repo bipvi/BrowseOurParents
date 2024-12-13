@@ -30,10 +30,11 @@ public class Specie extends Item{
     private Genere genere;
 
     public Specie(SpecieDTO body, Fenotipo fenotipo, Genere genere) {
-        this.nome_comune = body.nome_comune();
+        this.nome_comune = body.nome();
         this.nome_scientifico = body.nome_scientifico();
         this.descrizione = body.descrizione();
         this.storia = body.storia();
+        this.nome = body.nome();
         this.anno_di_classificazione = body.anno_di_classificazione();
         this.fenotipo = fenotipo;
         if (body.img() != null) this.img = body.img();
@@ -41,8 +42,8 @@ public class Specie extends Item{
     }
 
     public Specie(SpecieDTO body, Genere genere) {
-        this.nome_comune = body.nome_comune();
-        this.nome = body.nome_comune();
+        this.nome_comune = body.nome();
+        this.nome = body.nome();
         this.nome_scientifico = body.nome_scientifico();
         this.descrizione = body.descrizione();
         this.storia = body.storia();

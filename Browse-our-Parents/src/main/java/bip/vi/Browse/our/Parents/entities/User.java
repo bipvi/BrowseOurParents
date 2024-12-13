@@ -4,6 +4,7 @@ import bip.vi.Browse.our.Parents.DTO.LoginDTO;
 import bip.vi.Browse.our.Parents.DTO.NewUserDTO;
 import bip.vi.Browse.our.Parents.entities.enums.Ruolo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-@JsonIgnoreProperties({"password","role","enabled","accountNonLocked","credentialsNonExpired","accountNonExpired","authorities"})
+@JsonIgnoreProperties({"password","role","enabled","favourites","accountNonLocked","credentialsNonExpired","accountNonExpired","authorities"})
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +35,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Ruolo ruolo;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JsonManagedReference
     @JoinTable(
             name = "favourite",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -46,7 +48,6 @@ public class User implements UserDetails {
         this.username = body.username();
         this.password = body.password();
         this.ruolo = Ruolo.USER;
-        this.avatar = "https://placehold.co/600x400?text=" + body.username();
     }
 
     public User(NewUserDTO body, PasswordEncoder bcrypt){
@@ -55,14 +56,14 @@ public class User implements UserDetails {
         this.ruolo = Ruolo.USER;
         if (body.avatar() != null) {
             this.avatar = body.avatar();
-        } else this.avatar = "https://placehold.co/600x400?text=" + body.username();
+        } else this.avatar = "https://robohash.org/" + username + ".png";
     }
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.ruolo = Ruolo.USER;
-        this.avatar = "https://placehold.co/600x400?text=" + username;
+        this.avatar = "https://robohash.org/" + username + ".png";
     }
 
     @Override

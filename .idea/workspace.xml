@@ -6,20 +6,37 @@
   <component name="ChangeListManager">
     <list default="true" id="9208ca4c-4570-4a07-8fa9-435f1a875d55" name="Changes" comment="add comments and popolate db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/BrowseOurParentsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/BrowseOurParentsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/DTO/SpecieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/DTO/SpecieDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/ClasseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/FamigliaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/FamigliaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/FenotipoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/FenotipoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/GenereController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/GenereController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/OrdineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/OrdineController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/PhylumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/PhylumController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/RegnoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/RegnoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/SpecieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/SpecieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Commento.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Commento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Specie.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/Specie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/exceptions/ExceptionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/exceptions/ExceptionsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/ClasseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/ClasseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/FamigliaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/FamigliaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/FenotipoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/FenotipoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/GenereRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/GenereRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/OrdineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/OrdineRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/PhylumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/PhylumRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/RegnoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/RegnoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/SpecieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/repo/SpecieRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/ClasseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/ClasseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/FamigliaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/FamigliaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/FenotipoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/FenotipoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/GenereService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/GenereService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/ItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/OrdineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/OrdineService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/PhylumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/PhylumService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/RegnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Browse-our-Parents/src/main/java/bip/vi/Browse/our/Parents/services/RegnoService.java" afterDir="false" />
@@ -59,6 +76,9 @@
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -84,6 +104,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -122,7 +143,20 @@
       <workItem from="1733184517230" duration="56000" />
       <workItem from="1733277045002" duration="1142000" />
       <workItem from="1733392788406" duration="7427000" />
-      <workItem from="1733501584990" duration="2214000" />
+      <workItem from="1733501584990" duration="6742000" />
+      <workItem from="1733584541834" duration="15148000" />
+      <workItem from="1733670521075" duration="3811000" />
+      <workItem from="1733747858103" duration="3358000" />
+      <workItem from="1733760941723" duration="2214000" />
+      <workItem from="1733825130314" duration="10404000" />
+      <workItem from="1733877247378" duration="8587000" />
+      <workItem from="1733934136676" duration="88000" />
+      <workItem from="1733934262258" duration="781000" />
+      <workItem from="1733935129260" duration="2538000" />
+      <workItem from="1733953983460" duration="1411000" />
+      <workItem from="1733999289284" duration="712000" />
+      <workItem from="1734012338830" duration="5808000" />
+      <workItem from="1734095041456" duration="6453000" />
     </task>
     <task id="LOCAL-00001" summary="add comments and popolate db">
       <option name="closed" value="true" />

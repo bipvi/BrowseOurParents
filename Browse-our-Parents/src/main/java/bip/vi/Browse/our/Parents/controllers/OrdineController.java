@@ -33,10 +33,8 @@ public class OrdineController {
     }
 
     @GetMapping
-    public Page<Ordine> findAll(@RequestParam(defaultValue = "1") int page,
-                                @RequestParam(defaultValue = "10") int size,
-                                @RequestParam(defaultValue = "nome") String sortBy) {
-        return this.ordineService.findAllOrdini(page, size, sortBy);
+    public List<Ordine> findAll() {
+        return this.ordineService.findAllOrdini();
     }
 
     // --------------------- POST ---------------------
@@ -67,27 +65,18 @@ public class OrdineController {
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/nomeQuery")
-    public Page<Ordine> findByNome(@RequestParam String nomeQuery,
-                             @RequestParam(defaultValue = "1") int page,
-                             @RequestParam(defaultValue = "10") int size,
-                             @RequestParam(defaultValue = "nome") String sortBy){
-        return this.ordineService.findOrdiniByNome( page, size, sortBy, nomeQuery);
+    public List<Ordine> findByNome(@RequestParam String nomeQuery){
+        return this.ordineService.findOrdiniByNome( nomeQuery);
     }
 
     @GetMapping("/descQuery")
-    public Page<Ordine> findByDescrizione(@RequestParam String descQuery,
-                                    @RequestParam(defaultValue = "1") int page,
-                                    @RequestParam(defaultValue = "10") int size,
-                                    @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.ordineService.findOrdiniByDescrizione(page, size, sortBy, descQuery );
+    public List<Ordine> findByDescrizione(@RequestParam String descQuery){
+        return this.ordineService.findOrdiniByDescrizione(descQuery );
     }
 
     @GetMapping("/storiaQuery")
-    public Page<Ordine> findByStoria(@RequestParam String storiaQuery,
-                               @RequestParam(defaultValue = "1") int page,
-                               @RequestParam(defaultValue = "10") int size,
-                               @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.ordineService.findOrdiniByStoria(page, size, sortBy, storiaQuery );
+    public List<Ordine> findByStoria(@RequestParam String storiaQuery){
+        return this.ordineService.findOrdiniByStoria(storiaQuery );
     }
 
     //--------------------------------- Get Classe -----------------------------------------

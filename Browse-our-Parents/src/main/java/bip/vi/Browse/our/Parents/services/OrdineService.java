@@ -31,9 +31,8 @@ public class OrdineService extends SetImg {
         return this.ordineRepository.save(ordine);
     }
 
-    public Page<Ordine> findAllOrdini(int page, int size, String sort) {
-        if (size > 50) size = 50;
-        return this.ordineRepository.findAll(PageRequest.of(page, size, Sort.by(sort)));
+    public List<Ordine> findAllOrdini() {
+        return this.ordineRepository.findAll();
     }
 
     public Ordine findOrdineById(String id) {
@@ -66,19 +65,16 @@ public class OrdineService extends SetImg {
 
     //----------------------------- Query ---------------------------------------------------
 
-    public Page<Ordine> findOrdiniByNome(int page, int size, String sort, String nome) {
-        if (size > 50) size = 50;
-        return this.ordineRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Ordine> findOrdiniByNome(String nome) {
+        return this.ordineRepository.findByNomeContainingIgnoreCase(nome);
     }
 
-    public Page<Ordine> findOrdiniByDescrizione(int page, int size, String sort, String descrizione) {
-        if (size > 50) size = 50;
-        return this.ordineRepository.findByDescrizioneContainingIgnoreCase(descrizione, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Ordine> findOrdiniByDescrizione( String descrizione) {
+        return this.ordineRepository.findByDescrizioneContainingIgnoreCase(descrizione);
     }
 
-    public Page<Ordine> findOrdiniByStoria(int page, int size, String sort, String storia) {
-        if (size > 50) size = 50;
-        return this.ordineRepository.findByStoriaContainingIgnoreCase(storia, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Ordine> findOrdiniByStoria(String storia) {
+        return this.ordineRepository.findByStoriaContainingIgnoreCase(storia);
     }
 
     //------------------------------------ Get Classe -----------------------------------------------

@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -35,10 +36,8 @@ public class SpecieController {
     }
 
     @GetMapping
-    public Page<Specie> findAll(@RequestParam(defaultValue = "1") int page,
-                                @RequestParam(defaultValue = "10") int size,
-                                @RequestParam(defaultValue = "nome") String sortBy) {
-        return this.specieService.findAllSpecie(page, size, sortBy);
+    public List<Specie> findAll() {
+        return this.specieService.findAllSpecie();
     }
 
     // --------------------- POST ---------------------
@@ -69,27 +68,18 @@ public class SpecieController {
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/nomeQuery")
-    public Page<Specie> findByNome(@RequestParam String nomeQuery,
-                             @RequestParam(defaultValue = "1") int page,
-                             @RequestParam(defaultValue = "10") int size,
-                             @RequestParam(defaultValue = "nome") String sortBy){
-        return this.specieService.findSpecoeByNome(nomeQuery, page, size, sortBy);
+    public List<Specie> findByNome(@RequestParam String nomeQuery){
+        return this.specieService.findSpecoeByNome(nomeQuery);
     }
 
     @GetMapping("/descQuery")
-    public Page<Specie> findByDescrizione(@RequestParam String descQuery,
-                                    @RequestParam(defaultValue = "1") int page,
-                                    @RequestParam(defaultValue = "10") int size,
-                                    @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.specieService.findSpecieByDescrizione(descQuery, page, size, sortBy);
+    public List<Specie> findByDescrizione(@RequestParam String descQuery){
+        return this.specieService.findSpecieByDescrizione(descQuery);
     }
 
     @GetMapping("/storiaQuery")
-    public Page<Specie> findByStoria(@RequestParam String storiaQuery,
-                               @RequestParam(defaultValue = "1") int page,
-                               @RequestParam(defaultValue = "10") int size,
-                               @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.specieService.findSpecieByStoria(storiaQuery, page, size, sortBy);
+    public List<Specie> findByStoria(@RequestParam String storiaQuery){
+        return this.specieService.findSpecieByStoria(storiaQuery);
     }
 
     @GetMapping("/fenotipoQuery")
@@ -107,5 +97,10 @@ public class SpecieController {
     @GetMapping("/{specieId}/getFenotipo")
     public Fenotipo getFenotipoBySpecieId (@PathVariable("specieId") String specieId){
         return this.specieService.findFenotipoBySpecieId(specieId);
+    }
+
+    @GetMapping("/getRandomly")
+    public Specie getRandomly(){
+        return this.specieService.getRandomSpecie();
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -49,9 +50,8 @@ public class FenotipoService {
 
     //---------------------------------- Query ------------------------------------------------------
 
-    public Page<Fenotipo> findFenotipiByNome (int page, int size, String sort, String nome){
-        if (size > 50) size = 50;
-        return this.fenotipoRepository.findByNomeContainingIgnoreCase(nome, PageRequest.of(page, size, Sort.by(sort)));
+    public List<Fenotipo> findFenotipiByNome ( String nome){
+        return this.fenotipoRepository.findByNomeContainingIgnoreCase(nome);
     }
 
     //-------------------------------------- Get Specie ------------------------------------------

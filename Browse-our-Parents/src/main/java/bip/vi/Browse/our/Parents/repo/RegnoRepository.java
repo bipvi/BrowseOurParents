@@ -6,13 +6,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface RegnoRepository extends JpaRepository<Regno, UUID> {
-    Page<Regno> findByNomeContainingIgnoreCase(String nome, Pageable pageable);
+    List<Regno> findByNomeContainingIgnoreCase(String nome);
 
-    Page<Regno> findByDescrizioneContainingIgnoreCase(String descrizione, Pageable pageable);
+    List<Regno> findByDescrizioneContainingIgnoreCase(String descrizione);
 
-    Page<Regno> findByStoriaContainingIgnoreCase(String storia, Pageable pageable);
+    List<Regno> findByStoriaContainingIgnoreCase(String storia);
 }

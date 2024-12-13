@@ -6,13 +6,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface GenereRepository extends JpaRepository<Genere, UUID> {
-    Page<Genere> findByNomeContainingIgnoreCase(String nome, Pageable pageable);
+    List<Genere> findByNomeContainingIgnoreCase(String nome );
 
-    Page<Genere> findByDescrizioneContainingIgnoreCase(String descrizione, Pageable pageable);
+    List<Genere> findByDescrizioneContainingIgnoreCase(String descrizione );
 
-    Page<Genere> findByStoriaContainingIgnoreCase(String storia, Pageable pageable);
+    List<Genere> findByStoriaContainingIgnoreCase(String storia );
 }

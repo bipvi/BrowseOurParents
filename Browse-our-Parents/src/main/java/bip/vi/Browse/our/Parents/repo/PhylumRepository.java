@@ -6,13 +6,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface PhylumRepository extends JpaRepository<Phylum, UUID> {
-    Page<Phylum> findByNomeContainingIgnoreCase(String nome, Pageable pageable);
+    List<Phylum> findByNomeContainingIgnoreCase(String nome);
 
-    Page<Phylum> findByDescrizioneContainingIgnoreCase(String descrizione, Pageable pageable);
+    List<Phylum> findByDescrizioneContainingIgnoreCase(String descrizione );
 
-    Page<Phylum> findByStoriaContainingIgnoreCase(String storia, Pageable pageable);
+    List<Phylum> findByStoriaContainingIgnoreCase(String storia);
 }

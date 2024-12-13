@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -65,11 +66,8 @@ public class FenotipoController {
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/{nomeQuery}")
-    public Page<Fenotipo> findFFenotipiByNome(@PathVariable("nomeQuery") String nomeQuery,
-                                             @RequestParam(defaultValue = "1") int page,
-                                             @RequestParam(defaultValue = "10") int size,
-                                             @RequestParam(defaultValue = "nome") String sortBy){
-        return this.fenotipoService.findFenotipiByNome(page, size, sortBy, nomeQuery);
+    public List<Fenotipo> findFFenotipiByNome(@PathVariable("nomeQuery") String nomeQuery){
+        return this.fenotipoService.findFenotipiByNome( nomeQuery);
     }
 
     //--------------------------------- Get Specie -----------------------------------------

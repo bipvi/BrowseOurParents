@@ -34,10 +34,8 @@ public class GenereController {
     }
 
     @GetMapping
-    public Page<Genere> findAll(@RequestParam(defaultValue = "1") int page,
-                                @RequestParam(defaultValue = "10") int size,
-                                @RequestParam(defaultValue = "nome") String sortBy) {
-        return this.genereService.findAllGeneri(page, size, sortBy);
+    public List<Genere> findAll() {
+        return this.genereService.findAllGeneri();
     }
 
     // --------------------- POST ---------------------
@@ -68,27 +66,18 @@ public class GenereController {
     //---------------------------------------- QUERY -----------------------------------
 
     @GetMapping("/nomeQuery")
-    public Page<Genere> findByNome(@RequestParam String nomeQuery,
-                             @RequestParam(defaultValue = "1") int page,
-                             @RequestParam(defaultValue = "10") int size,
-                             @RequestParam(defaultValue = "nome") String sortBy){
-        return this.genereService.findGenereByNome(page, size, sortBy, nomeQuery);
+    public List<Genere> findByNome(@RequestParam String nomeQuery){
+        return this.genereService.findGenereByNome(nomeQuery);
     }
 
     @GetMapping("/descQuery")
-    public Page<Genere> findByDescrizione(@RequestParam String descQuery,
-                                    @RequestParam(defaultValue = "1") int page,
-                                    @RequestParam(defaultValue = "10") int size,
-                                    @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.genereService.findGenereByDescrizione(page, size, sortBy , descQuery);
+    public List<Genere> findByDescrizione(@RequestParam String descQuery){
+        return this.genereService.findGenereByDescrizione(descQuery);
     }
 
     @GetMapping("/storiaQuery")
-    public Page<Genere> findByStoria(@RequestParam String storiaQuery,
-                               @RequestParam(defaultValue = "1") int page,
-                               @RequestParam(defaultValue = "10") int size,
-                               @RequestParam(defaultValue = "descrizione") String sortBy){
-        return this.genereService.findGenereByStoria(page, size, sortBy, storiaQuery);
+    public List<Genere> findByStoria(@RequestParam String storiaQuery){
+        return this.genereService.findGenereByStoria(storiaQuery);
     }
 
     //--------------------------------- Get Famiglia -----------------------------------------
